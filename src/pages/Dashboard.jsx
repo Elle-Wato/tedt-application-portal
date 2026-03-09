@@ -26,7 +26,7 @@ export default function Dashboard() {
               <li>School leaving certificate</li>
               <li>University Admission letter for your Bachelors program and Fee structure.</li>
               <li>Copy of ID</li>
-              <li>Copy of KRA pin</li>
+              <li>Copy of TRA pin</li>
               <li>Colored passport size photo</li>
               <li>Write 300 words about yourself and justification for the soft loan (Hand written)</li>
             </ol>
@@ -35,7 +35,7 @@ export default function Dashboard() {
           <div className="req-section">
             <h4>B. Parent/Guardian</h4>
             <ol>
-              <li>Copy of ID, Copy of KRA pin & One colored passport size photo</li>
+              <li>Copy of ID, Copy of TRA pin & One colored passport size photo</li>
             </ol>
             <p><strong>In addition to the above, the person paying the loan must provide:</strong></p>
             <ol>

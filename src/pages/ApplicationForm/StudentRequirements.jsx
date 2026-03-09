@@ -24,7 +24,7 @@ export default function StudentRequirements({ onNext, formData, updateFormData }
     schoolLeavingCertificate: null,
     admissionLetter: null,
     nationalID: null,
-    kraPinDoc: null,
+    traPinDoc: null,
     passportPhoto: null,
     loanEssay: null,
   });
@@ -112,7 +112,7 @@ export default function StudentRequirements({ onNext, formData, updateFormData }
       { id: "dateOfBirth", label: "Date of Birth" },
       { id: "maritalStatus", label: "Marital Status" },
       { id: "telephoneNo", label: "Telephone No." },
-      { id: "kraPin", label: "KRA PIN" },
+      { id: "traPin", label: "TRA PIN" },
       { id: "county", label: "County" },
       { id: "postalAddress", label: "Postal Address" },
       { id: "residentialAddress", label: "Residential Address" },
@@ -146,7 +146,7 @@ export default function StudentRequirements({ onNext, formData, updateFormData }
       { id: "form4Certificate", label: isPostgraduate ? "Last Educational Certificate" : "Form 4 Certificate" },
       { id: "admissionLetter", label: "University Admission Letter" },
       { id: "nationalID", label: "National ID" },
-      { id: "kraPinDoc", label: "KRA PIN" },
+      { id: "traPinDoc", label: "TRA PIN" },
       { id: "passportPhoto", label: "Passport Size Photo" }
     ];
 
@@ -201,7 +201,7 @@ export default function StudentRequirements({ onNext, formData, updateFormData }
           <input name="maritalStatus" placeholder="5. Marital Status *" value={personalDetails.maritalStatus || ""} onChange={handlePersonalChange} className="req-input" />
           <input type="number" name="noOfChildren" placeholder="6. No. of Children" value={personalDetails.noOfChildren || ""} onChange={handlePersonalChange} className="req-input" />
           <input type="tel" name="telephoneNo" placeholder="7. Telephone No. *" value={personalDetails.telephoneNo || ""} onChange={handlePersonalChange} className="req-input" />
-          <input name="kraPin" placeholder="8. KRA PIN *" value={personalDetails.kraPin || ""} onChange={handlePersonalChange} className="req-input" />
+          <input name="traPin" placeholder="8. TRA PIN *" value={personalDetails.traPin || ""} onChange={handlePersonalChange} className="req-input" />
           <input name="county" placeholder="9. County *" value={personalDetails.county || ""} onChange={handlePersonalChange} className="req-input" />
           <input name="postalAddress" placeholder="10. Postal Address *" value={personalDetails.postalAddress || ""} onChange={handlePersonalChange} className="req-input" />
           <input name="poBox" placeholder="P. O. Box" value={personalDetails.poBox || ""} onChange={handlePersonalChange} className="req-input" />
@@ -293,9 +293,9 @@ export default function StudentRequirements({ onNext, formData, updateFormData }
             {uploadedUrls.nationalID && <div className="upload-status">✅ Uploaded | <a href={uploadedUrls.nationalID} target="_blank" rel="noreferrer">View</a></div>}
           </div>
           <div className="req-field">
-            <label className="req-label">📋 KRA PIN <span style={{color: 'red'}}>*</span></label>
-            <input type="file" name="kraPinDoc" className="req-file" onChange={handleFileChange} />
-            {uploadedUrls.kraPinDoc && <div className="upload-status">✅ Uploaded | <a href={uploadedUrls.kraPinDoc} target="_blank" rel="noreferrer">View</a></div>}
+            <label className="req-label">📋 TRA PIN <span style={{color: 'red'}}>*</span></label>
+            <input type="file" name="traPinDoc" className="req-file" onChange={handleFileChange} />
+            {uploadedUrls.traPinDoc && <div className="upload-status">✅ Uploaded | <a href={uploadedUrls.traPinDoc} target="_blank" rel="noreferrer">View</a></div>}
           </div>
           <div className="req-field">
             <label className="req-label">📸 Passport Size Photo <span style={{color: 'red'}}>*</span></label>

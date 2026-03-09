@@ -71,7 +71,7 @@ export default function Login() {
         <header className="login-header">
           <div className="header-content">
             <img src={logo} alt="Company Logo" className="header-logo" />
-            <h1 className="header-title">Student Loan Portal</h1>
+            <h1 className="header-title">Tanzania Education and Development Trust | Student Loan Portal</h1>
           </div>
           <div className="instructions">
             <h3>How to Apply for the Interest-Free Study Loan</h3>
@@ -143,7 +143,7 @@ export default function Login() {
           </p>
         </div>
         <footer className="page-footer">
-          <p>&copy; {currentYear} Elimisha Trust. All rights reserved. | Contact Us: applications@elimishatrust.or.ke </p>
+          <p>&copy; {currentYear} Tanzania Education and Development Trust. All rights reserved. | Contact Us: applications@elimishatrust.or.ke </p>
         </footer>
       </div>
     </div>

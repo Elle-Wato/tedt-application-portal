@@ -5,7 +5,7 @@ export default function DocumentUpload() {
     "School Leaving Certificate",
     "Admission Letter",
     "National ID",
-    "KRA PIN",
+    "TRA PIN",
     "Passport Photo",
     "Loan Justification Essay"
   ];

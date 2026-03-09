@@ -335,10 +335,10 @@ export default function StaffDashboard() {
                     </a>
                   </p>
                 )}
-                {getDetailValue(selectedStudent.details, ["parentGuardianDocuments", "kraPinCopy"]) && (
+                {getDetailValue(selectedStudent.details, ["parentGuardianDocuments", "traPinCopy"]) && (
                   <p>
-                    <strong>KRA PIN Copy:</strong>{" "}
-                    <a href={getDetailValue(selectedStudent.details, ["parentGuardianDocuments", "kraPinCopy"])} target="_blank" rel="noopener noreferrer">
+                    <strong>TRA PIN Copy:</strong>{" "}
+                    <a href={getDetailValue(selectedStudent.details, ["parentGuardianDocuments", "traPinCopy"])} target="_blank" rel="noopener noreferrer">
                       View Document
                     </a>
                   </p>
@@ -545,7 +545,7 @@ export default function StaffDashboard() {
     schoolLeavingCertificate: "🏫 School Leaving Certificate",
     admissionLetter: "🎓 University Admission Letter",
     nationalID: "🆔 National ID",
-    kraPinDoc: "📋 KRA PIN Document",
+    traPinDoc: "📋 TRA PIN Document",
     passportPhoto: "📸 Passport Size Photo",
     loanEssay: "✍️ Loan Justification Essay",
     // Postgraduate specific labels

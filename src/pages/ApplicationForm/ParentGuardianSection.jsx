@@ -7,7 +7,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
     parentName: "",
     relationship: "",
     idNumber: "",
-    kraPin: "",
+    traPin: "",
     telephone: "",
     numberOfChildren: "",
     residentialAddress: "",
@@ -17,7 +17,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
 
   const [uploadedUrls, setUploadedUrls] = useState(formData.parentGuardianDocuments || {
     idCopy: "",
-    kraPinCopy: "",
+    traPinCopy: "",
     passportPhoto: "",
   });
 
@@ -63,7 +63,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
       { id: "parentName", label: "Parent/Guardian Full Name" },
       { id: "relationship", label: "Relationship" },
       { id: "idNumber", label: "ID Number" },
-      { id: "kraPin", label: "KRA PIN" },
+      { id: "traPin", label: "TRA PIN" },
       { id: "telephone", label: "Telephone Number" },
       { id: "residentialAddress", label: "Residential Address" },
       { id: "emailAddress", label: "Email Address" },
@@ -80,7 +80,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
     // 2. Define Required Documents
     const requiredDocs = [
       { id: "idCopy", label: "Copy of ID" },
-      { id: "kraPinCopy", label: "Copy of KRA PIN" },
+      { id: "traPinCopy", label: "Copy of TRA PIN" },
       { id: "passportPhoto", label: "Passport Size Photo" },
     ];
 
@@ -143,7 +143,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
           { name: "parentName", placeholder: "👨‍👩‍👧 Full Name of Parent / Guardian *", type: "text" },
           { name: "relationship", placeholder: "👪 Relationship *", type: "text" },
           { name: "idNumber", placeholder: "🆔 ID Number *", type: "text" },
-          { name: "kraPin", placeholder: "📋 KRA PIN *", type: "text" },
+          { name: "traPin", placeholder: "📋 TRA PIN *", type: "text" },
           { name: "telephone", placeholder: "📞 Telephone Number *", type: "tel" },
           { name: "numberOfChildren", placeholder: "👶 Number of Children", type: "number" },
           { name: "residentialAddress", placeholder: "🏠 Residential Address *", type: "text" },
@@ -175,7 +175,7 @@ export default function ParentGuardianSection({ onNext, onBack, formData, update
       <div className="parent-grid" style={{ marginTop: "15px" }}>
         {[
           { name: "idCopy", label: "🆔 Copy of ID", accept: ".pdf,.jpg,.png" },
-          { name: "kraPinCopy", label: "📋 Copy of KRA PIN", accept: ".pdf,.jpg,.png" },
+          { name: "traPinCopy", label: "📋 Copy of TRA PIN", accept: ".pdf,.jpg,.png" },
           { name: "passportPhoto", label: "📸 Passport Size Photo", accept: ".jpg,.png" },
         ].map(({ name, label, accept }) => (
           <div className="parent-field" key={name}>
