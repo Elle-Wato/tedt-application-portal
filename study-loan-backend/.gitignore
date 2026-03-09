@@ -1,0 +1,10 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+venv/
+env/
+
+# OS / Editor
+.DS_Store
