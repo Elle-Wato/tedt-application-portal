@@ -10,21 +10,27 @@ auth_bp = Blueprint('auth', __name__)
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
+
     email = data.get('email')
     password = data.get('password')
     role = data.get('role', 'student')
 
-    if User.query.filter_by(email=email).first():
-        return jsonify({'error': 'Email exists'}), 400
+    if not email or not password:
+        return jsonify({'error': 'Email and password are required'}), 400
 
-    # 1. Create token and User object
-    verification_token = str(uuid.uuid4())
+    if User.query.filter_by(email=email).first():
+        return jsonify({'error': 'Email already exists'}), 400
+
+    # 1. Create User object
+    # We set verification_token to None and is_verified to True immediately
     user = User(
         email=email, 
         password_hash=generate_password_hash(password), 
         role=role,
-        verification_token=verification_token,
-        is_verified=False 
+        verification_token=None, 
+        is_verified=True 
     )
     
     db.session.add(user)
@@ -35,43 +41,52 @@ def register():
         db.session.add(student)
         db.session.commit()
 
-    # 2. Send Verification Email
-    # Note: When deploying, change to your actual frontend URL (e.g., your-app.render.com)
-    verify_url = f"http://127.0.0.1:5000/auth/verify/{verification_token}"
+    # 2. Email Section Removed
+    # Students can now log in immediately after clicking Register.
     
-    try:
-        send_email(email, 'Verify Your Account', f"Welcome! Please verify your account by clicking this link: {verify_url}")
-        return jsonify({'message': 'Registration successful! Check your email to verify.'}), 201
-    except Exception as e:
-        print(f"!!! EMAIL ERROR: {e}")
-        return jsonify({
-            'message': 'Account created, but verification email failed. Please contact admin.',
-            'error_details': str(e)
-        }), 201
+    return jsonify({
+        'message': 'Registration successful! You can now log in to start your application.'
+    }), 201
 
 @auth_bp.route('/verify/<token>', methods=['GET'])
 def verify(token):
     user = User.query.filter_by(verification_token=token).first()
     if not user:
-        return "<h1>Invalid Link</h1>", 400
+        # Redirect to frontend with an error status
+        return redirect("https://apply.elimishatrust.or.ke/login?error=invalid_token")
 
     user.is_verified = True
     user.verification_token = None
     db.session.commit()
 
-    # Redirect back to your login page with a success message in the URL
-    return redirect("http://localhost:5173/?verified=true")
+    # SUCCESS: Redirect back to your LIVE frontend login page
+    return redirect("https://apply.elimishatrust.or.ke/login?verified=true")
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    user = User.query.filter_by(email=data['email']).first()
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
 
-    if user and check_password_hash(user.password_hash, data['password']):
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({'error': 'Email and password are required'}), 400
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and check_password_hash(user.password_hash, password):
+        # OPTIONAL: Force verification to True just in case an old user tries to log in
         if not user.is_verified:
-            return jsonify({'error': 'Please verify your email address before logging in.'}), 403
+            user.is_verified = True
+            db.session.commit()
             
         token = create_access_token(identity=user.email)
-        return jsonify({'token': token, 'role': user.role})
+        return jsonify({
+            'token': token, 
+            'role': user.role,
+            'email': user.email
+        }), 200
         
-    return jsonify({'error': 'Invalid credentials'}), 401
+    return jsonify({'error': 'Invalid email or password'}), 401
