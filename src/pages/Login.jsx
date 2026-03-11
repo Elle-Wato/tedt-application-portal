@@ -71,7 +71,7 @@ export default function Login() {
         <header className="login-header">
           <div className="header-content">
             <img src={logo} alt="Company Logo" className="header-logo" />
-            <h1 className="header-title">Tanzania Education and Development Trust | Student Loan Portal</h1>
+            <h1 className="header-title">Student Loan Portal</h1>
           </div>
           <div className="instructions">
             <h3>How to Apply for the Interest-Free Study Loan</h3>
@@ -83,7 +83,7 @@ export default function Login() {
             </ol>
             <p><strong>N.B.</strong></p>
             <ul>
-              <li>If you are successful, you will be required to sign a contract with our lawyer and pay Ksh 2,500 for Undergraduate and UUSSP program, Kshs 5,000 for Postgraduate program and Kshs 1,500 for Diploma legal fees. The fee is payable only once.</li>
+              <li>If you are successful, you will be required to sign a contract with our lawyer and pay Tshs 50,000 for Undergraduate and UUSSP program, Tshs 50,000 for Postgraduate program and Tshs 30,000 for Diploma legal fees. The fee is payable only once.</li>
               <li>If you are successful, you will start paying back the loan at the end of the same month after the disbursement of the first semester fees.</li>
               <li>Fees will be directly transferred to the university account.</li>
               <li>The bank charges for the transfer will form part of the soft loan and charged to the account of the successful applicant.</li>
